@@ -24,13 +24,8 @@ public class CommonControllerAdvice {
 
     private static final List<ErrorCode> SPECIFIC_ALERT_TARGET_ERROR_CODE_LIST = Lists.newArrayList();
 
-    /**
-     * http status: 500 AND result: FAIL
-     * 시스템 예외 상황. 집중 모니터링 대상
-     *
-     * @param e
-     * @return
-     */
+    // http status: 500 AND result: FAIL
+    // 시스템 예외 상황. 집중 모니터링 대상
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(value = Exception.class)
@@ -40,13 +35,8 @@ public class CommonControllerAdvice {
         return CommonResponse.fail(ErrorCode.COMMON_SYSTEM_ERROR);
     }
 
-    /**
-     * http status: 200 AND result: FAIL
-     * 시스템은 이슈 없고, 비즈니스 로직 처리에서 에러가 발생함
-     *
-     * @param e
-     * @return
-     */
+    // http status: 200 AND result: FAIL
+    // 시스템은 이슈 없고, 비즈니스 로직 처리에서 에러가 발생함
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(value = BaseException.class)
@@ -60,13 +50,8 @@ public class CommonControllerAdvice {
         return CommonResponse.fail(e.getMessage(), e.getErrorCode().name());
     }
 
-    /**
-     * 예상치 않은 Exception 중에서 모니터링 skip 이 가능한 Exception 을 처리할 때
-     * ex) ClientAbortException
-     *
-     * @param e
-     * @return
-     */
+    // 예상치 않은 Exception 중에서 모니터링 skip 이 가능한 Exception 을 처리할 때
+    //  ex) ClientAbortException
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(value = {ClientAbortException.class})
@@ -76,13 +61,8 @@ public class CommonControllerAdvice {
         return CommonResponse.fail(ErrorCode.COMMON_SYSTEM_ERROR);
     }
 
-    /**
-     * http status: 400 AND result: FAIL
-     * request parameter 에러
-     *
-     * @param e
-     * @return
-     */
+    // http status: 400 AND result: FAIL
+    // request parameter 에러
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})

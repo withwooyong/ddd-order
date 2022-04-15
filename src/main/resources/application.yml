@@ -7,12 +7,9 @@ spring:
     timeout-per-shutdown-phase: 20s
   jpa:
     show-sql: true
-    #    database-platform: mysql
     hibernate:
-      ddl-auto: none
-  #    properties:
-  #      hibernate:
-  #        format_sql: true
+      format_sql: true
+      ddl-auto: create
   datasource:
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -22,18 +19,21 @@ spring:
   flyway:
     user: user
     password: pass
-    schemas: order
+    schemas: ddd-order
     url: jdbc:mysql://localhost:3306/ddd-order?serverTimezone=UTC&characterEncoding=UTF-8
     enabled: true
 
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
 
 #logging:
 #  config: classpath:logback-local.xml
 logging:
   level:
+    org.hibernate.SQL: debug
     com.example.dddorder: debug
+  pattern:
+    console: '%d{HH:mm:ss.SSS} [%t] %-5level %logger{36}:%L - %msg%n'
 

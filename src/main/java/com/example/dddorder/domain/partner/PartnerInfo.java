@@ -1,10 +1,8 @@
 package com.example.dddorder.domain.partner;
 
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-@Builder
 public class PartnerInfo {
 
     private final Long id;
