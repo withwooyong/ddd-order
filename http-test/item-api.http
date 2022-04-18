@@ -61,8 +61,8 @@ Content-Type: application/json
 
 {
   "partnerToken": "ptn_W7oAfc8L1gfCWnFC",
-  "itemName": "양말",
-  "itemPrice": 10000,
+  "itemName": "바지",
+  "itemPrice": 50000,
   "itemOptionGroupList": [
     {
       "ordering": "1",
@@ -97,7 +97,7 @@ Content-Type: application/json
         {
           "ordering": 2,
           "itemOptionName": "BlUE",
-          "itemOptionPrice": 1000
+          "itemOptionPrice": 10000
         }
       ]
     }
@@ -118,8 +118,8 @@ Content-Type: application/json
 
 {
   "partnerToken": "ptn_W7oAfc8L1gfCWnFC",
-  "itemName": "양말",
-  "itemPrice": 10000
+  "itemName": "바지",
+  "itemPrice": 30000
 }
 
 ### 아이템 조회

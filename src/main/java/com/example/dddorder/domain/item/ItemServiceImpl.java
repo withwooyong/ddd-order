@@ -22,8 +22,10 @@ public class ItemServiceImpl implements ItemService {
         // 1. get PartnerId
         var partner = partnerReader.getPartner(partnerToken);
         var initItem = request.toEntity(partner.getId());
+        // 2. item store
         var item = itemStore.store(initItem);
         log.debug("item={}", item.toString());
+        // 3. itemOptionGroup + itemOption store
         itemOptionSeriesFactory.store(request, item);
         return item.getItemToken();
     }

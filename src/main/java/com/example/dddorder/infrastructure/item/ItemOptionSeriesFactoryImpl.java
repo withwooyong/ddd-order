@@ -33,11 +33,6 @@ public class ItemOptionSeriesFactoryImpl implements ItemOptionSeriesFactory {
         return itemOptionGroupRequestList.stream()
                 .map(requestItemOptionGroup -> {
                     var initItemOptionGroup = requestItemOptionGroup.toEntity(item);
-                    System.out.println("==========1");
-                    System.out.println(initItemOptionGroup.getItem().getId());
-                    System.out.println(initItemOptionGroup.getOrdering());
-                    System.out.println(initItemOptionGroup.getItemOptionGroupName());
-                    System.out.println("==========2");
                     var itemOptionGroup = itemOptionGroupStore.store(initItemOptionGroup); // itemOptionGroup store
 
                     requestItemOptionGroup.getItemOptionRequestList().forEach(requestItemOption -> {
