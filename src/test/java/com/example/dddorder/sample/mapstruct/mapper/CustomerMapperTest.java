@@ -58,6 +58,7 @@ class CustomerMapperTest {
                 .containsExactly(tuple("Table", 2L));
     }
 
+
     @Test
     void testTest() {
         System.out.println("===");
